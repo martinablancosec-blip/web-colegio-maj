@@ -1,0 +1,57 @@
+CÓMO AGREGAR UN PROYECTO A LA WEB
+
+1) Copiá un JSON nuevo en:
+   templates/data/proyectos/
+
+2) El nombre del archivo tiene que ser el ID del proyecto.
+   Ejemplo:
+   mi_proyecto.json
+   El ID será: mi_proyecto
+
+3) Copiá un proyecto existente como modelo (por ejemplo copa_robotica.json)
+   y cambiá sus textos, imágenes y datos.
+
+4) Agregá una entrada en:
+   templates/data/index-proyectos.json
+
+   Ejemplo:
+   {
+     "id": "mi_proyecto",
+     "title": "Mi nuevo proyecto",
+     "date": "2026-09-06",
+     "displayDate": "6 de Septiembre",
+     "summary": "Una breve descripción para la tarjeta.",
+     "image": "img/mi-foto.jpg"
+   }
+
+5) Poné las fotos dentro de la carpeta:
+   img/
+
+   Y en el JSON usá:
+   - En index-proyectos.json: "img/nombre.jpg"
+   - En el JSON de detalle: "../img/nombre.jpg"
+
+6) ¡Listo!
+   Al entrar a Proyectos, la nueva tarjeta aparecerá automáticamente.
+   Al tocarla, se abrirá:
+   templates/Proyecto.html?id=mi_proyecto
+
+IMPORTANTE
+- No hace falta crear una página HTML nueva para cada proyecto.
+- No hace falta tocar el código de Proyectos.html.
+- No hace falta tocar templates/Proyecto.html.
+- Solo necesitás: 1 JSON de detalle + 1 entrada en index-proyectos.json + las fotos que quieras usar.
+
+PROYECTO 1
+Ya dejé creado:
+   templates/data/proyectos/proyecto_1.json
+y también su entrada en el índice. Está preparado como plantilla para que reemplaces los textos y fotos.
+
+COPA ROBÓTICA
+Ya tiene:
+   templates/data/proyectos/copa_robotica.json
+y está conectado desde el índice.
+
+NOTA PARA PROBAR LA WEB
+Como los JSON se cargan con fetch(), algunos navegadores bloquean la lectura de archivos JSON si abrís el HTML directamente con doble clic (file://).
+Si eso pasa, no es un error de la web. Hay que probarla desde un servidor local o desde donde esté publicada.
